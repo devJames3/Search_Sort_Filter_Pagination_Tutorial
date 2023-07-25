@@ -4,6 +4,8 @@ import axios from "axios";
 import Search from './components/Search';
 import Table from './components/Table';
 import Pagination from './components/Paginaton';
+import Sort from './components/Sort';
+import Genre from './components/Genre';
 
 import './App.css';
 
@@ -25,7 +27,7 @@ function App() {
 
         const { data } = await axios.get(url);
         setObj(data);
-        console.log(data);
+        // console.log(data);
 
       } catch (err) {
         console.log(err);
@@ -35,7 +37,10 @@ function App() {
 
     getAllMovies();
 
+
   }, [sort, filterGenre, page, search]);
+
+  console.log(obj);
 
   return (
     <div className='wrapper'>
@@ -54,7 +59,10 @@ function App() {
               setPage={(page) => setPage(page)}
             />
           </div>
-          <div className="filter_container"></div>
+          <div className="filter_container">
+            <Sort sort={sort} setSort={(sort) => setSort(sort)} />
+            <Genre filterGenre={filterGenre} genres={obj.genres ? obj.genres : []} setFilterGenre={(genre) => setFilterGenre(genre)} />
+          </div>
         </div>
       </div>
     </div>

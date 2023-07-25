@@ -9,7 +9,7 @@ const Pagination = ({ page, total, limit, setPage }) => {
 
     return (
         <div className={styles.container}>
-            {totalPages > 0 && [...Array(totalPages)].map((val, index) => {
+            {totalPages > 0 && [...Array(totalPages)].map((val, index) => (
                 <button className={
                     page === index + 1
                         ? `${styles.page_btn} ${styles.active}`
@@ -20,7 +20,7 @@ const Pagination = ({ page, total, limit, setPage }) => {
                 >
                     {index + 1}
                 </button>
-            })}
+            ))}
         </div>
     )
 }
