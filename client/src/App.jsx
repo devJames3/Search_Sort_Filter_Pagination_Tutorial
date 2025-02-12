@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Search from './components/Search';
 import Table from './components/Table';
-import Pagination from './components/Paginaton';
+import Pagination from './components/Pagination';
 import Sort from './components/Sort';
 import Genre from './components/Genre';
 
@@ -40,7 +40,6 @@ function App() {
 
   }, [sort, filterGenre, page, search]);
 
-  console.log(obj);
 
   return (
     <div className='wrapper'>

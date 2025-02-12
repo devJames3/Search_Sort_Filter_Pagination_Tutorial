@@ -71,7 +71,7 @@ async function getMovies(req, res) {
     }
 }
 
-// const inserMovies = async (res) => {
+// const insertMovies = async (res) => {
 //     try {
 //         withDB(async (db) => {
 //             const docs = await db.collection("movies").insertMany(movies);
@@ -82,6 +82,6 @@ async function getMovies(req, res) {
 //     }
 // }
 
-// inserMovies();
+// insertMovies();
 
 module.exports = { getMovies }
