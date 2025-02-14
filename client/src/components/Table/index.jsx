@@ -1,6 +1,19 @@
 import styles from "./styles.module.css";
 
-const Table = ({ movies }) => {
+
+const Spinner = () => {
+
+    return (
+        <div className={styles.loader_container}>
+            <div className={styles.loader}></div>
+        </div>
+        
+    );
+}
+
+
+const Table = ({ movies, dataReceived }) => {
+    console.log(dataReceived)
     return (
         <div className={styles.container}>
             <div className={styles.heading}>
@@ -8,7 +21,7 @@ const Table = ({ movies }) => {
                 <p className={styles.genre_tab}>Genre</p>
                 <p className={styles.rating_tab}>Rating</p>
             </div>
-            {movies.map((movie) => (
+            { dataReceived ? movies.map((movie) => (
                 <div className={styles.movie} key={movie._id}>
                     <div className={styles.title_container}>
                         <img src={movie.img}
@@ -30,7 +43,7 @@ const Table = ({ movies }) => {
                         <p className={styles.movie_rating}>{movie.rating}</p>
                     </div>
                 </div>
-            ))}
+            )) : <Spinner/>}
         </div>
     )
 }

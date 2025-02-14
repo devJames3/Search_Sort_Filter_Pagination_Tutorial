@@ -18,6 +18,7 @@ function App() {
   const [filterGenre, setFilterGenre] = useState([]);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [dataReceived, setDataReceived] = useState(false);
 
   useEffect(() => {
     const getAllMovies = async () => {
@@ -27,8 +28,8 @@ function App() {
 
         const { data } = await axios.get(url);
         setObj(data);
-        // console.log(data);
-
+        setDataReceived(true);
+        
       } catch (err) {
         console.log(err);
       }
@@ -50,7 +51,7 @@ function App() {
         </div>
         <div className="body">
           <div className="table_container">
-            <Table movies={obj.movies ? obj.movies : []} />
+            <Table movies={obj.movies ? obj.movies : []} dataReceived={dataReceived} />
             <Pagination
               page={page}
               limit={obj.limit ? obj.limit : 0}
