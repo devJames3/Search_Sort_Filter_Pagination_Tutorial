@@ -13,7 +13,6 @@ const Spinner = () => {
 
 
 const Table = ({ movies, dataReceived }) => {
-    console.log(dataReceived)
     return (
         <div className={styles.container}>
             <div className={styles.heading}>
