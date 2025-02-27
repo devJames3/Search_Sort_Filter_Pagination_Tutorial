@@ -61,7 +61,7 @@ VITE_API_URL=your_backend_url(copy after starting the api server)
 ### 4️⃣ Start the Development Servers
 
 #### Run the Backend
-
+Uncomment the code at the bottom of `movies.model.js` to insert the movies in the database run server once then comment it out
 ```sh
 cd api
 npm start
